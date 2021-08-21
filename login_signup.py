@@ -74,27 +74,69 @@ def sign_up(accounts):
             break
 accounts={'phananh12042003':'khongmatkhau','pinkmay2005':'123','khanhha':'hello'}
 
+def user_event(events,des_events,orgs,des_orgs):
+    while(True):
+        option1=input('See events or orgs(1 or 2): ')
+        if option1=="1":
+            for i in range(0,len(events)):
+                print( '{0}. {1}'.format((i+1),events[i]))
+            numb=int(input('Choose event you wanna see a description '))
+            if numb>0 and numb<=len(des_events):
+                print(des_events[numb-1])
+        else:
+            for i in range(0,len(orgs)):
+                print( '{0}. {1}'.format((i+1),orgs[i]))
+            numb=int(input('Choose org you wanna see a description '))
+            if numb>0 and numb<=len(des_orgs):
+                print(des_orgs[numb-1])
+        print(
+    """
+    1. Continue to see 
+    2. Logout
+    """
+        )
+        option2=input('Continue or logout?(1 or 2): ')
+        if option2=='2':
+            break
+        
 
 
-# while(True):
-#     print("""
-#     #1. Use program
-#     #2. Stop program
-#     """)
-#     use_program=input('Choose your option(1 or 2): ')
-#     if use_program=="2":
-#         break
-#     else:
-#         user_action=input('Sign in or sign up(1 or 2): ')
-#         if user_action=='1':
-#             sign_in(accounts)
-#         else:
-#             sign_up(accounts)
-#         print(    
-#     """
-# #1. User
-# #2. Orgination
-# """)
-#         role=input('Choose your role(1 or 2): ')
-#         if role=="1":
-#         else:
+
+events=['Vietcode','Trung thu','Summer Camp']
+des_events=['vui','thieu nhi','rat vui']
+orgs=['Vietcode','Ecoway','Azure','Fagether']
+des_orgs=['code','moi truong','children','people']
+
+
+
+
+
+
+while(True):
+    print("""
+    #1. Use program
+    #2. Stop program
+    """)
+    use_program=input('Choose your option(1 or 2): ')
+    if use_program=="2":
+        break
+    else:
+        user_action=input('Sign in or sign up(1 or 2): ')
+        if user_action=='1':
+            sign_in(accounts)
+        else:
+            sign_up(accounts)
+        print(    
+    """
+1. User
+2. Orgination
+""")
+        role=input('Choose your role(1 or 2): ')
+        if role=="1":
+            print(
+"""
+1. See events
+2. See orgs            
+""")
+            user_event(events,des_events,orgs,des_orgs)
+        # else:
