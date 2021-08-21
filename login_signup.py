@@ -74,6 +74,49 @@ def sign_up(accounts):
             break
 accounts={'phananh12042003':'khongmatkhau','pinkmay2005':'123','khanhha':'hello'}
 
+def org_event(events,des_events,orgs,des_orgs):
+    while(True):
+        option1=input('See events, orgs, or create new events?(1, 2, or 3): ')
+        if option1=="1":
+            for i in range(0,len(events)):
+                print( '{0}. {1}'.format((i+1),events[i]))
+            numb=int(input('Choose event you wanna see a description '))
+            if numb>0 and numb<=len(des_events):
+                print(des_events[numb-1])
+        elif option1=='2':
+            for i in range(0,len(orgs)):
+                print( '{0}. {1}'.format((i+1),orgs[i]))
+            numb=int(input('Choose org you wanna see a description '))
+            if numb>0 and numb<=len(des_orgs):
+                print(des_orgs[numb-1])
+        else:
+            repeat=True
+            while(repeat==True):
+                numb=int(input('How many events do you wanna create? '))
+                if numb>5:
+                    print('Your number is out of range. Please try again!')
+                    break
+                else:
+                    
+                    for x in range(1,numb+1):
+                        name=input('Name of event:{0}, '.format(x))
+                        des=input('Description of event:{0} '.format(x))
+                        events.append(name)
+                        des_events.append(des)
+                    repeat=False
+                    
+
+
+        print(
+    """
+    1. Continue to see 
+    2. Logout
+    """
+        )
+        option2=input('Continue or logout?(1 or 2): ')
+        if option2=='2':
+            break
+    
 def user_event(events,des_events,orgs,des_orgs):
     while(True):
         option1=input('See events or orgs(1 or 2): ')
@@ -139,4 +182,6 @@ while(True):
 2. See orgs            
 """)
             user_event(events,des_events,orgs,des_orgs)
-        # else:
+        else:
+            org_event(events,des_events,orgs,des_orgs)
+
